@@ -1,4 +1,4 @@
-﻿using Azure.Core;
+﻿//using Azure.Core;
 using Module32MVCFinal2.Models.Db.Entities;
 using Module32MVCFinal2.Models.Db.Repositories;
 using Module32MVCFinal2.Models;
@@ -36,9 +36,9 @@ namespace Module32MVCFinal2.Middlewares
             };
 
         // Добавим в базу
-            //await _blogRepository.AddUser(newUser);
+            await _requestRepository.AddRequest(newLog);
             // Для логирования данных о запросе используем свойста объекта HttpContext
-            Console.WriteLine($"[{DateTime.Now}]: New request to http://{context.Request.Host.Value + context.Request.Path}");
+            //Console.WriteLine($"[{DateTime.Now}]: New request to http://{context.Request.Host.Value + context.Request.Path}");
 
             // Передача запроса далее по конвейеру
             await _next.Invoke(context);
